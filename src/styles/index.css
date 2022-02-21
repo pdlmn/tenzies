@@ -17,7 +17,7 @@ body {
 
 .container {
   border-radius: 8px;
-  background: white;
+  background: rgb(220, 220, 220);
   width: 75%;
   height: 75%;
   display: flex;
@@ -34,7 +34,7 @@ body {
 }
 
 .die {
-  background: rgb(220, 220, 220);
+  background: white;
   box-shadow: 2px 4px 5px 2px rgba(0, 0, 0, .5);
   border-radius: 5px;
   display: grid;
