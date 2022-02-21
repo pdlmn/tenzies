@@ -22,7 +22,11 @@ const App = () => {
   }
 
   const rollDice = () => {
-    setDice(createNewDice())
+    setDice(prevDice => prevDice.map((dice) =>
+      (dice.isHeld)
+      ? dice
+      : { ...dice, value: generateNumber() }
+    ))
   }
 
   const holdDie = (id) => {
