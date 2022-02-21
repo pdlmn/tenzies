@@ -44,6 +44,11 @@ const App = () => {
     setWin(false)
   }
 
+  const checkForWin = () => {
+    const isWon = dice.every((die) => die.isHeld && die.value === dice[0].value)
+    if (isWon) setWin(true)
+  }
+
   ;(function initDice() {
     dice.length < 1 && setDice(createNewDice())
   })()
@@ -58,15 +63,16 @@ const App = () => {
       />
     ))
 
-  useEffect(() => {
-    const isWon = dice.every((die) => die.isHeld && die.value === dice[0].value)
-    if (isWon) setWin(true)
-  }, [dice])
+  useEffect(checkForWin, [dice])
 
   return (
     <div className="container">
       {win && <Confetti numberOfPieces={600} recycle={false}/>}
-      <div className="die-container">
+      <header className="explanation">
+        <h1>Welcome to Tenzies!</h1>
+        <p>Click on a die to hold its value. You win when all values you hold are the same.</p>
+      </header>
+      <div className="dice-container">
         {diceElements}
       </div>
       <button className="btn" onClick={win ? resetGame : rollDice}>
