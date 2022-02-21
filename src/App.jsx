@@ -44,7 +44,7 @@ const App = () => {
         isHeld={die.isHeld}
         key={die.id}
         handleClick={() => holdDie(die.id)}
-        />
+      />
     ))
 
   return (
